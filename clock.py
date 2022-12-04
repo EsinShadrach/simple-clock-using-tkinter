@@ -1,18 +1,38 @@
 from tkinter import *
 from tkinter.ttk import *
-
 from time import strftime
 
 root = Tk()
 root.title("Clock")
+date = strftime('%h-%d-%Y')
 
 def time():
-    string = strftime('%H:%M:%S %p')
-    label.config(text=string)
-    label.after(1000, time)
-label = Label(root, font = ("ds-digitale", 60),background = "white", foreground = "blue")
-label.pack(anchor = 'center')
-button = Button (root,text = "close", command = quit).pack()
-time()
+    string = strftime('%I:%M:%S %p')
+    time_.config(text=string)
+    time_.after(1000, time)
 
+
+
+date_ = Label(
+    root, font = ("ds-digitale", 67),
+        background = "black",
+        text = date,
+        foreground = '#fa8072'
+    )
+
+time_ = Label(
+    root, font = ("ds-digitale", 68),
+        background = "black",
+        foreground= "coral"
+    )
+
+
+date_.pack(
+    anchor = "center"
+    )
+time_.pack(
+    anchor = "center"
+    )
+
+time()
 mainloop()
